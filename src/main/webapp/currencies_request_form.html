@@ -16,17 +16,19 @@
 
     <form action="rate-request" id="currencies" method="get">
         <label for="currenciesselect">Choose a currencies:</label>
-        <select id="currenciesselect" name="code" form="currencies" required>
-            <option value="840">Доллар США</option>
-            <option value="978">Евро</option>
-            <option value="643">Российский рубль</option>
-            <option value="1">Белорусский рубль</option>
+        <select id="currenciesselect" name="firstCurrCode" form="currencies" required>
+            <option value="840">USD</option>
+            <option value="978">EURO</option>
+            <option value="643">RUB</option>
+            <option value="985">PLN</option>
+            <option value="1">BYN</option>
         </select>
-        <select id="currenciesselect2" name="code2" form="currencies" required>
-            <option value="840">Доллар США</option>
-            <option value="978">Евро</option>
-            <option value="643">Российский рубль</option>
-            <option value="1">Белорусский рубль</option>
+        <select id="currenciesselect2" name="secondCurrCode" form="currencies" required>
+            <option value="840">USD</option>
+            <option value="978">EURO</option>
+            <option value="643">RUB</option>
+            <option value="985">PLN</option>
+            <option value="1">BYN</option>
         </select>
         <label for="amount">
             Amount:

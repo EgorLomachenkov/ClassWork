@@ -24,25 +24,29 @@ public class CurrenciesServlet extends HttpServlet {
         //1. amount and currency are presented -> client request to calculate data
         //1.1 get param values
         long amount = getLongParameter(request, "amount");
-        String code = request.getParameter("code");
-        String code2 = request.getParameter("code2");
+        String firstCurrCode = request.getParameter("firstCurrCode");
+        String secondCurrCode = request.getParameter("secondCurrCode");
 
         //1.2 get currency rate
-        double rate = Double.parseDouble(XMLCurrencyParser.getCurrency(code));
-        double rate2 = Double.parseDouble(XMLCurrencyParser.getCurrency(code2));
-        if (code.equals("643")) {
+        double rate = Double.parseDouble(XMLCurrencyParser.getCurrency(firstCurrCode));
+        double rate2 = Double.parseDouble(XMLCurrencyParser.getCurrency(secondCurrCode));
+        if (firstCurrCode.equals("643")) {
             rate /= 100;
+        } else if (firstCurrCode.equals("985")) {
+            rate /= 10;
         }
-        if (code2.equals("643")) {
+        if (secondCurrCode.equals("643")) {
             rate2 /= 100;
+        } else if (secondCurrCode.equals("985")) {
+            rate2 /= 10;
         }
 
 
         //1.3 calc final amount
         double result;
-        if (code2.equals("1")) {
+        if (secondCurrCode.equals("1")) {
             result = amount * rate;
-        } else if (code.equals("1")) {
+        } else if (firstCurrCode.equals("1")) {
             result = amount / rate2;
         } else {
             result = amount * rate / rate2;
