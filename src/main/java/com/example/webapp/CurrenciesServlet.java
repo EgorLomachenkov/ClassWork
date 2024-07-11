@@ -25,15 +25,28 @@ public class CurrenciesServlet extends HttpServlet {
         //1.1 get param values
         long amount = getLongParameter(request, "amount");
         String code = request.getParameter("code");
+        String code2 = request.getParameter("code2");
 
         //1.2 get currency rate
         double rate = Double.parseDouble(XMLCurrencyParser.getCurrency(code));
+        double rate2 = Double.parseDouble(XMLCurrencyParser.getCurrency(code2));
         if (code.equals("643")) {
             rate /= 100;
         }
+        if (code2.equals("643")) {
+            rate2 /= 100;
+        }
+
 
         //1.3 calc final amount
-        double result = amount * rate;
+        double result;
+        if (code2.equals("1")) {
+            result = amount * rate;
+        } else if (code.equals("1")) {
+            result = amount / rate2;
+        } else {
+            result = amount * rate / rate2;
+        }
 
         //1.4 make response
         include(path, "Result amount: " + result, request, response);

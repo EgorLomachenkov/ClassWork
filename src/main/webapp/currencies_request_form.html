@@ -8,17 +8,25 @@
 </head>
 
 <body>
+<meta charset="utf-8">
 <div class="main">
     <h1>NBRB Currencies</h1>
-    <h3>Choose currency</h3>
+    <h3>Convertor</h3>
 
 
     <form action="rate-request" id="currencies" method="get">
-        <label for="currenciesselect">Choose a car:</label>
+        <label for="currenciesselect">Choose a currencies:</label>
         <select id="currenciesselect" name="code" form="currencies" required>
             <option value="840">Доллар США</option>
             <option value="978">Евро</option>
             <option value="643">Российский рубль</option>
+            <option value="1">Белорусский рубль</option>
+        </select>
+        <select id="currenciesselect2" name="code2" form="currencies" required>
+            <option value="840">Доллар США</option>
+            <option value="978">Евро</option>
+            <option value="643">Российский рубль</option>
+            <option value="1">Белорусский рубль</option>
         </select>
         <label for="amount">
             Amount:
